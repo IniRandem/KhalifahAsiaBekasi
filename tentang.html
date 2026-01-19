@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khalifah Asia Bekasi</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100px;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #000000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #f0e68c);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(240, 230, 140, 0.05) 100%), url('khalifahbg.png') no-repeat center center/cover;
+            color: rgb(255, 255, 255);
+            padding: 10rem 2rem;
+            text-align: center;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #d4af37, #f0e68c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #e8e8e8;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
+            color: #1a1a1a;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .features {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 5px solid #d4af37;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            top: -10%;
+            right: -10%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .feature-card h3 {
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            border-top: 3px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer span {
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="Khalifah Bekasi.png" alt="Khalifah icon"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="https://wa.me/62817843531">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="features" id="features">
+        <div class="feature-card">
+            <h3>Profil Perusahaan</h3>
+            <p>Khalifah Asia adalah penyelenggara perjalanan ibadah Umroh dan Haji Khusus yang berkomitmen memberikan layanan terbaik dengan sepenuh hati. Berizin resmi dari Kementerian Agama Republik Indonesia.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Visi</h3>
+            <p>Menjadi perusahaan Tour & Travel Muslim terbesar di Indonesia, yang memberikan layanan terbaik dan berkualitas secara konsisten kepada semua pelanggan dan pemangku kepentingan melalui produk & layanan berkualitas, tata kelola perusahaan yang berintegritas, jujur dan dapat dipercaya</p>
+        </div>
+        <div class="feature-card">
+            <h3>Misi</h3>
+            <p>> Mengembangkan dan memposisikan produk dan layanan di bidang tour & travel bagi masyarakat muslim Indonesia.</p>
+            <p>> Berpartisipasi aktif dalam semua program yang dikeluarkan oleh Pemerintah dan instansi terkait untuk mempromosikan layanan Umroh & Haji, dan bahasa Indonesia pariwisata muslim.</p>
+            <p>> Memberikan solusi atas kebutuhan masyarakat muslim untuk layanan umroh & haji yang berkualitas dan terpercaya.</p>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <p>&copy; 2026 <span>Khalifah Asia Bekasi</span>. All rights reserved.</p>
+    </footer>
+</body>
+</html>
